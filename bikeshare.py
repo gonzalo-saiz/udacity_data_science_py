@@ -208,6 +208,50 @@ def user_stats(df, city):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
+    
+def show_raw_data(df, city):
+    """ Displays raw info from the DataFrame in 5 rows steps """
+    
+    # Replace NaN values for better presentation
+    if city != 'washington.csv':
+        df["Gender"].fillna('Missing', inplace = True)
+        df["Birth Year"].fillna('Missing', inplace = True)
+    
+    # Initialise the index
+    index = 0
+    
+    # Loop till user don't want more data
+    while True:
+        
+        # Loop till  no more data available or 5 rows are shown
+        while index == 0 or index < len(df.index):     
+            #print('index: ', index)
+            #print('df len: ', len(df.index))           
+                        
+            print('{')
+            print(df.columns[0], ': ', df.iloc[index,0])
+            print(df.columns[1], ': ', df.iloc[index,1])
+            print(df.columns[2], ': ', df.iloc[index,2])
+            print(df.columns[3], ': ', df.iloc[index,3])
+            print(df.columns[4], ': ', df.iloc[index,4])
+            print(df.columns[5], ': ', df.iloc[index,5])
+            print(df.columns[6], ': ', df.iloc[index,6])
+            if city != 'washington.csv':
+                print(df.columns[7], ': ', df.iloc[index,7])
+                print(df.columns[8], ': ', df.iloc[index,8])
+            print('}\n')     
+            
+            index += 1
+            if index % 5 == 0:
+                break
+            
+        # Ask the user for more data
+        restart = input('\nPress ENTER for more data or write \'no\' if you want to stop:\n')
+        if restart.lower() == 'no':
+            break
+    
+    print('-'*40)
     
     
 def main():
@@ -218,6 +262,10 @@ def main():
         station_stats(df)        
         trip_duration_stats(df)        
         user_stats(df, city)
+        
+        raw_data = input('\nWould you like see Raw Data? Enter yes or no.\n')
+        if raw_data.lower() == 'yes':
+            show_raw_data(df, city)
             
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
@@ -228,4 +276,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print ('\nProgram Interrupted')
+        print ('\nProgram Interrupted')S
