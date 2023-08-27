@@ -1,17 +1,16 @@
->**Note**: This is my first github project, enjoying it already!!!
-
 ### Date created
-Include the date you created this project and README file --> 27/08/2023
+Proyect created on 26/08/2023.
+Readme updated on 27/08/2023.
 
 ### Project Title
-UDACITY_DATA_SCIENCE_PY
+UDACITY DATA SCIENCE
 
 ### Description
-Project for nanodegree
+This is a project to learn about Python programming, the code included is reading, filtering, analysing and presenting data from a bike sharing company.
 
 ### Files used
-All needed files, will list them in the future
+bikeshare.py is the only file.
 
 ### Credits
-First time using Git by commands!
+Thanks to Udacity for this course, also to Alphabet Fleet Management (my employer) for giving me the opportunity to keep learning and growing.
 
